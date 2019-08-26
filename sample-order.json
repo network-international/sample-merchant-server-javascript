@@ -1,0 +1,124 @@
+{
+  "_id": "urn:order:775edaff-a26a-48a4-85a7-e9af68ef4ca3",
+  "_links": {
+      "cnp:payment-link": {
+          "href": "https://api-gateway-dev.ngenius-payments.com/transactions/outlets/0411acca-92f2-4305-a732-ac0f105d2a40/orders/775edaff-a26a-48a4-85a7-e9af68ef4ca3/payment-link"
+      },
+      "payment-authorization": {
+          "href": "https://api-gateway-dev.ngenius-payments.com/transactions/paymentAuthorization"
+      },
+      "self": {
+          "href": "https://api-gateway-dev.ngenius-payments.com/transactions/outlets/0411acca-92f2-4305-a732-ac0f105d2a40/orders/775edaff-a26a-48a4-85a7-e9af68ef4ca3"
+      },
+      "tenant-brand": {
+          "href": "http://config-service/config/outlets/0411acca-92f2-4305-a732-ac0f105d2a40/configs/tenant-brand"
+      },
+      "payment": {
+          "href": "https://paypage-dev.ngenius-payments.com/?code=81c991cefe955aa"
+      },
+      "merchant-brand": {
+          "href": "http://config-service/config/outlets/0411acca-92f2-4305-a732-ac0f105d2a40/configs/merchant-brand"
+      }
+  },
+  "savedCard": {
+      "maskedPan": "401200******1112",
+      "expiry": "2027-12",
+      "cardholderName": "Mr Something",
+      "scheme": "VISA",
+      "cardToken": "dG9rZW5pemVkUGFuLy92MS8vU0hPV19OT05FLy8wMTAwMjEwNDIxMTE0MTcz",
+      "recaptureCsc": true
+  },
+  "type": "SINGLE",
+  "action": "SALE",
+  "amount": {
+      "currencyCode": "AED",
+      "value": 150
+  },
+  "language": "en",
+  "merchantAttributes": {
+      "skipConfirmationPage": "true",
+      "redirectUrl": "http://bigshop.com/success"
+  },
+  "emailAddress": "svalaparla@equalexperts.com",
+  "reference": "775edaff-a26a-48a4-85a7-e9af68ef4ca3",
+  "outletId": "0411acca-92f2-4305-a732-ac0f105d2a40",
+  "createDateTime": "2019-08-20T11:04:26.387Z",
+  "paymentMethods": {
+      "card": [
+          "VISA",
+          "DINERS_CLUB_INTERNATIONAL",
+          "AMERICAN_EXPRESS",
+          "DISCOVER",
+          "VISA",
+          "MASTERCARD",
+          "JCB"
+      ]
+  },
+  "orderSummary": {
+      "items": [
+          {
+              "description": "description of a lovely item",
+              "totalPrice": {
+                  "currencyCode": "AED",
+                  "value": 150000
+              },
+              "quantity": 1
+          }
+      ],
+      "shipping": {
+          "currencyCode": "AED",
+          "value": 100
+      },
+      "tax": {
+          "currencyCode": "AED",
+          "value": 100
+      },
+      "total": {
+          "currencyCode": "AED",
+          "value": 150000
+      }
+  },
+  "referrer": "urn:Ecom:775edaff-a26a-48a4-85a7-e9af68ef4ca3",
+  "formattedAmount": "د.إ.‏ 1.5",
+  "formattedOrderSummary": {
+      "total": "د.إ.‏ 1,500",
+      "shipping": "د.إ.‏ 1",
+      "tax": "د.إ.‏ 1",
+      "items": [
+          "description of a lovely item x 1 د.إ.‏ 1,500"
+      ]
+  },
+  "_embedded": {
+      "payment": [
+          {
+              "_id": "urn:payment:6ec79fdb-4fa6-47be-8850-8936e0d4a913",
+              "_links": {
+                  "self": {
+                      "href": "https://api-gateway-dev.ngenius-payments.com/transactions/outlets/0411acca-92f2-4305-a732-ac0f105d2a40/orders/775edaff-a26a-48a4-85a7-e9af68ef4ca3/payments/6ec79fdb-4fa6-47be-8850-8936e0d4a913"
+                  },
+                  "payment:card": {
+                      "href": "https://api-gateway-dev.ngenius-payments.com/transactions/outlets/0411acca-92f2-4305-a732-ac0f105d2a40/orders/775edaff-a26a-48a4-85a7-e9af68ef4ca3/payments/6ec79fdb-4fa6-47be-8850-8936e0d4a913/card"
+                  },
+                  "payment:saved-card": {
+                      "href": "https://api-gateway-dev.ngenius-payments.com/transactions/outlets/0411acca-92f2-4305-a732-ac0f105d2a40/orders/775edaff-a26a-48a4-85a7-e9af68ef4ca3/payments/6ec79fdb-4fa6-47be-8850-8936e0d4a913/saved-card"
+                  },
+                  "curies": [
+                      {
+                          "name": "cnp",
+                          "href": "https://api-gateway-dev.ngenius-payments.com/docs/rels/{rel}",
+                          "templated": true
+                      }
+                  ]
+              },
+              "state": "STARTED",
+              "amount": {
+                  "currencyCode": "AED",
+                  "value": 150
+              },
+              "updateDateTime": "2019-08-20T11:04:26.387Z",
+              "outletId": "0411acca-92f2-4305-a732-ac0f105d2a40",
+              "orderReference": "775edaff-a26a-48a4-85a7-e9af68ef4ca3"
+          }
+      ]
+  }
+}
