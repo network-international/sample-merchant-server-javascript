@@ -1,8 +1,6 @@
 const express = require('express');
-const fs = require('fs');
 const axios = require('axios');
 const bodyParser = require('body-parser');
-const querystring = require('querystring');
 
 const app = express();
 
