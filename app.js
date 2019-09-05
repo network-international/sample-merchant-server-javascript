@@ -13,7 +13,7 @@ app.use(bodyParser.json());
 // These credentials should be received from the onboarding team.
 // These are account specific credentials
 
-const { API_KEY, IDENTITY_API_URL, GATEWAY_API_URL, PORT } = process.env;
+const { API_KEY, IDENTITY_API_URL, GATEWAY_API_URL, PORT, REALM } = process.env;
 
 if (!API_KEY || !IDENTITY_API_URL || !GATEWAY_API_URL) {
   console.error("Error!!! Env configs not found");
@@ -30,29 +30,34 @@ app.post('/api/createOrder', async (req, res) => {
 
   // Authenticate and receive bearer token
   try {
-    const { data } = await axios.post(IDENTITY_API_URL,
-      querystring.stringify({ 'grant_type': 'client_credentials' }),
-      {
-        headers: {
-          'Content-Type': 'application/x-www-form-urlencoded',
-          'Authorization': `Basic ${API_KEY}`
-        }
-      });
+
+    const { data } = await axios({
+      method: 'post',
+      url: IDENTITY_API_URL,
+      headers: {
+        'Content-Type': 'application/vnd.ni-identity.v1+json',
+        'Authorization': `Basic ${API_KEY}`
+      },
+      data: {
+        grant_type: 'client_credentials',
+        realm: REALM,
+      }
+    });
+
     const { access_token } = data;
 
     // Create the order using the bearer token received from previous step and the order data received from client
     // Refer docs for the possible fields available for order creation
 
-    console.log("====================", req.body)
     const { data: orderData } = await axios.post(GATEWAY_API_URL, {
       ...req.body
     }, {
-        headers: {
-          'Authorization': `Bearer ${access_token}`, // Note the access_token received in the previous step is passed here
-          'Content-Type': 'application/vnd.ni-payment.v2+json',
-          'Accept': 'application/vnd.ni-payment.v2+json'
-        },
+      headers: {
+        'Authorization': `Bearer ${access_token}`, // Note the access_token received in the previous step is passed here
+        'Content-Type': 'application/vnd.ni-payment.v2+json',
+        'Accept': 'application/vnd.ni-payment.v2+json'
       },
+    },
     );
 
     res
