@@ -22,13 +22,6 @@ if (!API_KEY || !IDENTITY_API_URL || !GATEWAY_API_URL) {
 
 app.get('/health', (_, res) => res.send('App working'));
 
-app.get('/sampleOrder', (_, res) => {
-  fs.readFile('./sample-order.json', (_, json) => {
-    let obj = JSON.parse(json);
-    res.json(obj);
-  });
-})
-
 /* 
   Example route that handles order creation, a similar route should be implemented
   on your server to create orders and the response should be sent to the client 
