@@ -5,19 +5,16 @@
 
 A simple & light weight NodeJS server that you can use to test Network International's iOS & Android SDK's.
 
-### Setup
-Create a `.env` file and add config.
-```
-API_KEY=XXX
-IDENTITY_API_URL=XXX
-GATEWAY_API_URL=XXX
-PORT=3000
-```
+### Install dependencies
+Run `yarn start` to install the dependencies.
+
+### Start the server
+- `API_KEY=XXX GATEWAY_API_URL=XXX IDENTITY_API_URL=XXX REALM=XXX PORT=3000 yarn start` will start the server.
 Replace `XXX` with your actual values which you can get from Network International's portal.
 
-### Run
-- `npm start` command will start the server.
-- iOS or Android app will make a `POST` request to `/api/create_payment_order` for creating an order.
+- The sample iOS and Android apps will make a `POST` request to `/api/createOrder` for creating an order.
+
+
 ```js
 // Sample request body
 {
@@ -31,3 +28,7 @@ Replace `XXX` with your actual values which you can get from Network Internation
 	"email": "user@domain.com" // Email
 }
 ```
+
+For more info on integrating the N-Genius api to your server side app, see our [order creation guide](https://docs.ngenius-payments.com/reference#creating-orders)
+
+For more info on the order creation api, see our [api reference](https://docs.ngenius-payments.com/reference#list-of-order-input-attributes)
