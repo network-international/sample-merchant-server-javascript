@@ -25,7 +25,7 @@ Replace `XXX` with your actual values which you can get from Network Internation
 	"action": "SALE", // AUTH or SALE
 	"language": "en",
 	"description":"", // Description of your order
-	"email": "user@domain.com" // Email
+	"emailAddress": "user@domain.com" // Email
 }
 ```
 
